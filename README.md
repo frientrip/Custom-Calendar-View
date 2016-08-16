@@ -11,7 +11,8 @@ Currently it supports the following features:
 * Unlimited customizations for day of the month using custom Decorators.
 * Allow you to handle event when user changes month and day selection.
 
-If you enjoy this library, don’t forget to follow me on my twitter handle [@javatechig](https://www.twitter.com/npanigrahy) or visit my blog at [http://javatechig.com](https://javatechig.com/)
+Original Library by [@javatechig](https://www.twitter.com/npanigrahy).
+Customized by [@Realignist](http://github.com/hazealign) from Frientrip Inc.
 
 ![alt text][logo]
 
@@ -20,7 +21,7 @@ If you enjoy this library, don’t forget to follow me on my twitter handle [@ja
 ### Gradle
 **Step 1** Add the JitPack repository to your build file. Add it in your build.gradle at the end of repositories.
 
-```java
+```groovy
   repositories {
     maven { url "https://jitpack.io" }
   }
@@ -28,9 +29,9 @@ If you enjoy this library, don’t forget to follow me on my twitter handle [@ja
 
 **Step-2** Add the dependency in the form
 
-```java
+```groovy
 dependencies {
-    compile 'com.github.npanigrahy:Custom-Calendar-View:v1.0'
+    compile 'com.github.frientrip:Custom-Calendar-View:v2.0'
 }
 ```
 ### Maven
@@ -43,35 +44,26 @@ dependencies {
 **Step 2** Add the dependency in the form
 ```xml
 <dependency>
-     <groupId>com.github.npanigrahy</groupId>
+     <groupId>com.github.frientrip</groupId>
      <artifactId>Custom-Calendar-View</artifactId>
-     <version>v1.0</version>
+     <version>v2.0</version>
 </dependency>
-```
-### Sbt
-**Step-1** Add it in your build.sbt at the end of resolvers:
-```java
-resolvers += "jitpack" at "https://jitpack.io"
-```
-**Step-2** Add the dependency in the form
-```java
-libraryDependencies += "com.github.npanigrahy" % "Custom-Calendar-View" % "v1.0"
 ```
 
 ## Using CustomCalendarView Library
 The GitHub project source includes a sample application, that is used for demonstrating the various features currently supported by this library. Once the library is added to your project, you can include the CustomCalendarView into your activity/fragment layout using the following code snippets.
 
 ```xml
-<com.imanoweb.calendarview.CustomCalendarView
+<com.frientrip.calendarview.CustomCalendarView
 	android:id="@+id/calendar_view"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:background="#ffffff">
-</com.imanoweb.calendarview.CustomCalendarView>
+</com.frientrip.calendarview.CustomCalendarView>
 ```
 The above code snippet will show the simple Calendar View with default design. Now, you can use the following attributes, to customize the appearance of calendar.
 ```xml
-<com.imanoweb.calendarview.CustomCalendarView
+<com.frientrip.calendarview.CustomCalendarView
         android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,7 +78,7 @@ The above code snippet will show the simple Calendar View with default design. N
         app:selectedDayBackgroundColor="@color/blue"
         app:titleLayoutBackgroundColor="@color/white"
         app:weekLayoutBackgroundColor="@color/white">
-</com.imanoweb.calendarview.CustomCalendarView>
+</com.frientrip.calendarview.CustomCalendarView>
 ```
 Let us now, initialize the calendar view to control the various other appearance and behavior of calendar using the following methods.
 ```java
@@ -106,18 +98,14 @@ calendarView.setShowOverflowDate(false);
 calendarView.refreshCalendar(currentCalendar);
 
 //Handling custom calendar events
-calendarView.setCalendarListener(new CalendarListener() {
-    @Override
-    public void onDateSelected(Date date) {
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        Toast.makeText(MainActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
-    }
+calendarView.setDateListener((date) -> {
+    SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+    Toast.makeText(MainActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
+});
 
-    @Override
-    public void onMonthChanged(Date date) {
-        SimpleDateFormat df = new SimpleDateFormat("MM-yyyy");
-        Toast.makeText(MainActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
-    }
+calendarView.setMonthListener((date) -> {
+    SimpleDateFormat df = new SimpleDateFormat("MM-yyyy");
+    Toast.makeText(MainActivity.this, df.format(date), Toast.LENGTH_SHORT).show();
 });
 ```
 
@@ -147,11 +135,13 @@ Custom Calendar View Library in Android Decorator
 ## License
 ```
 /*
- * Copyright (C) 2015 JavaTechig {link: http://javatechig.com}.
+ * Copyright (C) 2016
+ * Frientrip {link: http://frip.co.kr}
+ * JavaTechig {link: http://javatechig.com}.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+vc * You may obtain a copy of the License at
  *
  *      http://www.apache.org/licenses/LICENSE-2.0
  *
