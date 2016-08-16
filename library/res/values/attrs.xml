@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <declare-styleable name="CustomCalendarView">
         <attr name="calendarTitleTextColor" format="color" />
         <attr name="dayOfWeekTextColor" format="color" />
@@ -13,5 +12,6 @@
         <attr name="weekLayoutBackgroundColor" format="color" />
         <attr name="titleLayoutBackgroundColor" format="color" />
         <attr name="currentDayOfMonthColor" format="color" />
+        <attr name="weekendTextColor" format="color" />
     </declare-styleable>
 </resources>

@@ -1,40 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="1dp"
+    android:layout_height="68dp"
+    android:layout_marginBottom="0.5dp"
     android:clickable="true"
     android:paddingBottom="@dimen/calendarTitlePaddingBottom"
     android:paddingTop="@dimen/calendarTitlePaddingTop">
 
     <ImageView
         android:id="@+id/leftButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="8dp"
+        android:layout_height="16dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="false"
         android:layout_centerVertical="true"
-        android:paddingLeft="@dimen/padding"
-        android:src="@drawable/button_previous_month_selector" />
+        android:layout_marginLeft="66dp"
+        android:src="@drawable/ic_previous" />
 
-    <TextView
-        android:id="@+id/dateTitle"
-        style="@style/CalendarView.MonthTitle"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="false"
-        android:layout_centerInParent="true"
-        android:tag="dateTitle"
-        android:text="MONTH 2014"
-        android:textAllCaps="true" />
+        android:layout_centerInParent="true">
+        <TextView
+            android:id="@+id/yearTitle"
+            style="@style/CalendarView.YearTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="yearTitle"
+            android:text="2014"
+            android:textAllCaps="true" />
+
+        <TextView
+            android:layout_marginLeft="4dp"
+            android:id="@+id/dateTitle"
+            style="@style/CalendarView.MonthTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tag="monthTitle"
+            android:text="MONTH"
+            android:textAllCaps="true" />
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/rightButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="8dp"
+        android:layout_height="16dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="false"
         android:layout_centerVertical="true"
-        android:paddingRight="@dimen/padding"
-        android:src="@drawable/button_next_month_selector" />
+        android:layout_marginRight="66dp"
+        android:src="@drawable/ic_next" />
 </RelativeLayout>

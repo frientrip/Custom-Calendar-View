@@ -9,12 +9,23 @@
     <style name="CalendarView" />
 
     <style name="CalendarView.MonthTitle">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">17.5sp</item>
+    </style>
+
+    <style name="CalendarView.YearTitle">
+        <item name="android:textSize">17.5sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="CalendarView.DayHeader">
+        <item name="android:textSize">9.5sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+    </style>
+
     <style name="CalendarView.DayOfTheWeek">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13.5sp</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
